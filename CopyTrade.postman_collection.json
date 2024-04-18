@@ -1,0 +1,537 @@
+{
+	"info": {
+		"_postman_id": "e9e292e6-b0ae-49c1-95e9-696afc15276e",
+		"name": "CopyTrade",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23527799"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "createNew",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountId\":\"2385868\",\n    \"email\":\"xokoho7457@dusyum.com\",\n    \"password\":\"Xokoho@2023\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/account",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAccount",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountType\":\"Primary\",\n    \"percentage\":9\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/account/646476ac007390f447ee3725",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"account",
+								"646476ac007390f447ee3725"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAccount",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/account/64646a44b446c16d42311765",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"account",
+								"64646a44b446c16d42311765"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/accounts?paginate=false",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "paginate",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accountStatus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":\"Logged In Succesfully\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/account/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"account",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sendAll",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "update with csv",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/accounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trades",
+			"item": [
+				{
+					"name": "createTrade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 100,\n    \"hedging\": false,\n    \"type\": \"trade\",\n    \"side\": \"sell\",\n    \"ammend\":true,\n    \"exit\":\"Partial Exit\",\n    \"marketData\": {\n        \"marketName\": \"Germany 40 - Rolling Cash\",\n        \"marketId\": \"17068\",\n        \"quoteId\": \"6374\"\n    },\n    \"stopLimit\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/trade",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trade/646478b2aab1ac3c0629cbee",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trade",
+								"646478b2aab1ac3c0629cbee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trades?orderType=parent",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trades"
+							],
+							"query": [
+								{
+									"key": "orderType",
+									"value": "parent"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "marketData",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"reqUrl\": \"https://demo.tradedirect365.com/UTSAPI.asmx/GetMarketQuote\",\n               \"method\": \"GET\",\n                \"payLoad\": {\n                    \"groupID\": 11052,\n                    \"keyword\": \"\",\n                    \"portfolio\": false,\n                    \"search\": false,\n                    \"popular\": false\n                }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/marketdata",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"marketdata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 100,\n    \"hedging\": false,\n    \"type\": \"trade\",\n    \"side\": \"sell\",\n    \"ammend\":true,\n    \"exit\":\"Partial Exit\",\n    \"marketData\": {\n        \"marketName\": \"Germany 40 - Rolling Cash\",\n        \"marketId\": \"17068\",\n        \"quoteId\": \"6374\"\n    },\n    \"stopLimit\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/trade/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trade",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64f95c10dbc22e37c3163d67"
+								},
+								{
+									"key": "id",
+									"value": "64f95c10dbc22e37c3163d67"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStatus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": \"6509fab4eaa3bb7a1998b78b\",\r\n        \"status\": \"Closed\",\r\n        \"message\": \"Order Placed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Close  order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/close-order/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"close-order",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "650bce6c19409ee54325f6a0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trades New",
+			"item": [
+				{
+					"name": "buyOrder",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"percentage\": 100,\n    \"pointsAway\": 12,\n    \"atPrice\": 123,\n    \"side\": \"buy\",\n    \"marketData\": {\n        \"marketName\": \"Germany 40 - Rolling Cash\",\n        \"marketId\": \"17068\",\n        \"quoteId\": \"6374\"\n    },\n    \"stopLimit\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getParent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/order/getall?orderType=child&page=1&paginate=false",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								"getall"
+							],
+							"query": [
+								{
+									"key": "orderType",
+									"value": "child"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "paginate",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":\"Failed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order/update/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "651748d5e1b4d771d4fdfd3b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "closeOrder",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/order/close/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								"close",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "651836438f619af50ffde989"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "manage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"651a7c9d8746e5857ddcb5b4\",\n    \"orderCreated\":\"2023-09-30\",\n    \"openPrice\":1200,\n    \"status\":\"Active\",\n    \"message\":\"Order Placed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:9998/api",
+			"type": "string"
+		}
+	]
+}

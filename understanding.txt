@@ -1,0 +1,21 @@
+Differences between Controllers:  createOrder and createTrade
+Calculation of Amount/Percentage:
+
+createOrder calculates the amount based on a provided percentage.
+createTrade calculates the percentage based on a provided amount
+
+when user do partial exit from is it will effect on trade or order
+in order section is it need to show exit and partial exit button
+
+
+
+
+Internals
+Concerns
+o Send a warning in the system if a stop loss is more than X pips away
+
+o Being able to trade decimals and place stop loss with decimals
+
+when user do partial exit from is it will effect on trade or order
+
+in order section is it need to show exit and partial exit button
